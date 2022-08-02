@@ -1,15 +1,17 @@
 import React from 'react'
-import DashSidebar from './DashSidebar'
+import DashSidebar from './DashPages/DashSidebar'
 import { Grid } from '@mui/material'
+import { Outlet } from 'react-router-dom'
 
 const Dashboard = () => {
+
   return (
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{width:'1220px',marginTop:'20px'}}>
         <Grid item xs={2}>
             <DashSidebar/>
         </Grid>
-        <Grid item xs={10}>
-           <h2>hello</h2> 
+        <Grid item xs={9} style={{margin: '0px 0px 0px 100px'}}>
+           <Outlet />
         </Grid>
     </Grid>
   )

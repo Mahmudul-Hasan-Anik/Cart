@@ -21,7 +21,7 @@ const Header = () => {
   return (
     
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container style={{width:'1220px'}}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
@@ -149,10 +149,14 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
                 <MenuItem  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Profile</Typography>
+                  <Typography textAlign="center">
+                    <Link to='/profile'>Profile</Link>
+                  </Typography>
                 </MenuItem>
                 <MenuItem  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Dashboard</Typography>
+                  <Typography textAlign="center">
+                    <Link to='/dashboard'>Dashboard</Link>
+                  </Typography>
                 </MenuItem>
                 <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">Logout</Typography>

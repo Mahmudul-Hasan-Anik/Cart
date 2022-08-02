@@ -1,6 +1,8 @@
 import Header from "./Components/Header";
 import {BrowserRouter,Routes,Route,} from "react-router-dom";
-import { Cart, Home, Product, Registration, Wishlist,Login, Dashboard } from "./Pages/PageIndex";
+import { Cart, Home, Product, Registration, Wishlist,Login, Dashboard, Profile } from "./Pages/PageIndex";
+import { DashCatagory, DashHome, DashProduct, DashUser } from "./Pages/Dashboard/DashIndex";
+
 
 function App() {
   return (
@@ -14,7 +16,13 @@ function App() {
           <Route path="/wish" element={<Wishlist />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} >
+              <Route path="/dashboard/product" element={<DashProduct />} />
+              <Route path="/dashboard/catagory" element={<DashCatagory />} />
+              <Route path="/dashboard/home" element={<DashHome />} />
+              <Route path="/dashboard/user" element={<DashUser />} />
+          </Route>
+          <Route path="/profile" element={<Profile />} />
         </Routes>
     </BrowserRouter>
     </>

@@ -34,12 +34,11 @@ useEffect(() => {
    getData()
 }, [offset])
 
-console.log(data)
 
   return (
     <>    
     <div className='main_container'>
-        <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {data.map((item, index)=>(
         <Grid item xs={2} sm={3} md={3} key={index}>
             <Card sx={{ maxWidth: 345 }}>

@@ -22,7 +22,7 @@ code {
 }
 
 .main_container{
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 50px;
 }
@@ -88,4 +88,59 @@ code {
 .Auth_background_login img{
   width: 100%;
   margin-top: 40px !important;
+}
+
+/* ============ Dashboard ========= */
+.dashboard_sidebar a{
+  text-decoration: none;
+  color: black;
+}
+.dashboard_product_main{
+  text-align: center !important;
+  box-shadow: 2px 2px 10px 2px #eceaea;
+  margin-left: 20px !important;
+  margin-top: 20px !important;
+  padding: 30px 0px !important;
+}
+.dashboard_product_design{
+  margin-top: 30px !important;
+}
+.dashboard_catagory_background img{
+  width: 100%;
+  height: 400px;
+  margin-top: 0px !important;
+}
+.dashboard_catagory_form{
+  transform: translateY(50%);
+  margin-top: 50px !important;
+}
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  height: 40px;
+  width: 218px !important;
+}
+
+/* ========== PROFILE PICTURE =========== */
+
+.profile_picture{
+  margin-left: 30px;
+  transform: translateY(-70%);
+  margin-bottom: -100px;
+}
+.profile_model_picture{
+  width: 400px;
+  transform: translate(37%,10%);
+  margin-bottom: 100px;
+  margin-left: 120px;
+}
+.profile_model_button button{
+  color: white;
+}
+.profile_model_button svg{
+  color: white;
+}
+.profile_edit{
+  height: 400px;
+  width: 100%;
+  /* background-color: rgb(214, 210, 210); */
+  overflow-y: scroll;
 }
