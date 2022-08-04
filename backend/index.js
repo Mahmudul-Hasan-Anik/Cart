@@ -9,6 +9,8 @@ dotenv.config()
 //INTERNAL IMPORT
 const connect = require('./Database/DBconnection.js')
 const ProductRouter = require('./Routes/ProductRoute.js')
+const PostRouter = require('./Routes/PostRoute.js')
+const AuthRouter = require('./Routes/AuthRoute.js')
 
 // DATABASE
 connect()
@@ -19,6 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
 app.use('/dashboard/api', ProductRouter)
+app.use('/blog', PostRouter)
+app.use('/user/api', AuthRouter)
 
 
 app.get('/', function (req, res) {

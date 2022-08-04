@@ -36,9 +36,7 @@ const DashProduct = () => {
     formData.append('discount', discount)
     formData.append('description', description)
 
-    axios.post('http://localhost:8000/dashboard/api/product', formData).then(()=>{
-       setValues({...values, [e.target.name]: ''})
-    })
+    axios.post('http://localhost:8000/dashboard/api/product', formData)
   }
 
 

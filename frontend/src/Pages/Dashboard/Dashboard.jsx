@@ -2,10 +2,12 @@ import React from 'react'
 import DashSidebar from './DashPages/DashSidebar'
 import { Grid } from '@mui/material'
 import { Outlet } from 'react-router-dom'
+import Layout from '../../Components/Layout'
 
 const Dashboard = () => {
 
   return (
+    <Layout>
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{width:'1220px',marginTop:'20px'}}>
         <Grid item xs={2}>
             <DashSidebar/>
@@ -14,6 +16,7 @@ const Dashboard = () => {
            <Outlet />
         </Grid>
     </Grid>
+    </Layout>
   )
 }
 

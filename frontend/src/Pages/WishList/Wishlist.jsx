@@ -1,8 +1,9 @@
 import React from 'react'
+import Layout from '../../Components/Layout'
 
 const Wishlist = () => {
   return (
-    <div>Wishlist</div>
+    <Layout title='wishlist'>Wishlist</Layout>
   )
 }
 

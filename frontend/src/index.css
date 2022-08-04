@@ -91,6 +91,10 @@ code {
 }
 
 /* ============ Dashboard ========= */
+.dashboard_home div>div:hover{
+  background-color: #f7f1f1;;
+  cursor: pointer;
+}
 .dashboard_sidebar a{
   text-decoration: none;
   color: black;
@@ -143,4 +147,106 @@ code {
   width: 100%;
   /* background-color: rgb(214, 210, 210); */
   overflow-y: scroll;
+}
+
+/* ========== SWIPER SLIDER ============ */
+.swiper {
+  width: 80%;
+  height: 260px;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap,4px);
+  background-color: #fff !important;
+}
+
+/* =========== HOME ============= */
+.home{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.home_column_one{
+  width: 63%;
+}
+.home_discount{
+  width: 400px;
+  height: 260px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: 1px solid salmon;
+}
+.home_discount p{
+  background-color: #FFEDD5;
+  margin: 0 !important;
+  padding: 5px;
+  border-radius: 10px 10px 0px 0px;
+  text-align: center;
+}
+
+/* ========= BLOG ========== */
+.blog_profile_picture{
+  text-align: center;
+  transform: translateY(-60%);
+  margin-bottom: -50px;
+}
+.blog_content{
+  text-align: center;
+}
+.blog_main input{
+  width: 90%;
+  height: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  /* margin-right: 20px; */
+  border-radius: 20px;
+  border: 1px solid gray;
+}
+.post-input{
+  border: none;
+}
+
+textarea:focus, input:focus{
+  outline: 0;
+}
+textarea{
+  font-family: 'Courier New', Courier, monospace;
+  width: 500px;
+  resize: none;
+}
+.post-card:hover{
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+.post-card:first-child{
+  margin-left: 30px;
 }

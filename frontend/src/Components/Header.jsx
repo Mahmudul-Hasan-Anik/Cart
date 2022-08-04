@@ -20,7 +20,7 @@ const Header = () => {
  
   return (
     
-    <AppBar position="static">
+    <AppBar position="static" style={{background:'#10B981'}}>
       <Container style={{width:'1220px'}}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -82,7 +82,9 @@ const Header = () => {
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Blog</Typography>
+                  <Typography textAlign="center">
+                    <Link to='/blog'>Blog</Link>
+                  </Typography>
                 </MenuItem>
             </Menu>
           </Box>
@@ -108,7 +110,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} className='header_menu_button'>
               <Button sx={{my: 2, color: 'white', display: 'block'}} ><Link to='/'>Home</Link></Button>
               <Button sx={{my: 2, color: 'white', display: 'block'}} ><Link to='/product'>Product</Link></Button>
-              <Button sx={{my: 2, color: 'white', display: 'block'}} >Blog</Button>
+              <Button sx={{my: 2, color: 'white', display: 'block'}} > <Link to='/blog'>Blog</Link></Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

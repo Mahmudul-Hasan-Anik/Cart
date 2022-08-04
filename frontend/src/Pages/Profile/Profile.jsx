@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import { Container,Grid,Card,CardActions,CardContent,CardMedia,Button,Typography,IconButton, Tooltip } from '@mui/material'
+import { Container,Grid,Card,CardContent,CardMedia,Typography,IconButton, Tooltip } from '@mui/material'
 import ProfileImage from './ProfileImage';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import ProfileSidebar from './ProfileSidebar';
 import ProfileEdit from './ProfileEdit';
+import Layout from '../../Components/Layout';
 
 
 const Profile = () => {
@@ -16,7 +17,7 @@ const Profile = () => {
     const handleEditOpen = () => setEditOpen(true);
     const handleEditClose = () => setEditOpen(false);
   return (
-    <>
+    <Layout title='Profile'>
     <Container style={{width:'1220px',marginTop:'20px'}}>
         <Grid container spacing={2}>
             <Grid item xs={8} md={8}>
@@ -50,10 +51,6 @@ const Profile = () => {
                     species, ranging across all continents except Antarctica
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
                 </Card>
             </Grid>
 
@@ -69,7 +66,7 @@ const Profile = () => {
     <ProfileImage open={open} handleClose={handleClose}/>
     <ProfileEdit editOpen={editOpen} handleEditClose={handleEditClose}/>
     
-    </>
+    </Layout>
   )
 }
 

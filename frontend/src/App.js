@@ -1,6 +1,7 @@
-import Header from "./Components/Header";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {BrowserRouter,Routes,Route,} from "react-router-dom";
-import { Cart, Home, Product, Registration, Wishlist,Login, Dashboard, Profile } from "./Pages/PageIndex";
+import { Cart, Home, Product, Registration, Wishlist,Login, Dashboard, Profile, Blog } from "./Pages/PageIndex";
 import { DashCatagory, DashHome, DashProduct, DashUser } from "./Pages/Dashboard/DashIndex";
 
 
@@ -8,7 +9,17 @@ function App() {
   return (
     <>
      <BrowserRouter>
-     <Header/>
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+      />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
@@ -23,6 +34,7 @@ function App() {
               <Route path="/dashboard/user" element={<DashUser />} />
           </Route>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
     </BrowserRouter>
     </>
