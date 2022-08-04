@@ -1,18 +1,11 @@
 import React,{useEffect, useState} from 'react'
 import {Card, CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,IconButton,Grid,Menu,MenuItem,Box, Divider} from '@mui/material'
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import ReplyIcon from '@mui/icons-material/Reply';
-
-import MenuIcon from '@mui/icons-material/Menu';
-
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import axios from 'axios';
 import moment from 'moment'
-import { Link } from 'react-router-dom';
 
 const BlogPostShow = ()=>{
     const [anchorEl, setAnchorEl] = useState(null);
@@ -24,9 +17,8 @@ const BlogPostShow = ()=>{
       setAnchorEl(null);
     };
 
-
-
     const [getData, setGetData] = useState([])
+
     useEffect(()=>{
         async function fatchData(){
             const {data} = await axios.get('/blog/post/show')
@@ -35,8 +27,9 @@ const BlogPostShow = ()=>{
         fatchData()
     },[])
 
-    console.log(getData)
-
+    const handleLike = ()=>{
+      console.log('click')
+    }
 
   return (
     <>
@@ -75,7 +68,7 @@ const BlogPostShow = ()=>{
                 </Menu>
             </>
         }
-        title="Mahmudul Hasan"
+        title={item.user}
         subheader={moment(item.time).fromNow()}
       />
       <CardContent>
@@ -93,7 +86,7 @@ const BlogPostShow = ()=>{
 
 
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{textAlign:'center'}}>
-            <Grid item xs={3} className='post-card'>
+            <Grid item xs={3} className='post-card' onClick={handleLike}>
             <span>Like</span>
                 <IconButton>
                     <ThumbUpIcon />

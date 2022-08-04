@@ -17,7 +17,8 @@ const AuthSchema = new Schema({
     },
     image: {
         type: String
-    }
+    },
+
 })
 
 const Authentication = mongoose.model('Authentication', AuthSchema)

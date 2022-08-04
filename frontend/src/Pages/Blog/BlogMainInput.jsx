@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Button, Modal, Box, Typography, Divider, Avatar,Grid,Tooltip,IconButton, FormControl} from '@mui/material'
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import { useState } from 'react';
 import axios from 'axios'
+import { Store } from '../../Store';
 
 const BlogMainInput = (props) => {
+  const {userState} = useContext(Store)
+  const {user} = userState
+
   const [text, setText] = useState('')
   const [image, setImage] = useState('')
   const [video, setVideo] = useState('')
@@ -22,6 +26,9 @@ const BlogMainInput = (props) => {
     formData.append('image', image)
     formData.append('video', video)
     formData.append('document', document)
+    formData.append('userName', user.name)
+    formData.append('userID', user._id)
+    formData.append('like', user._id)
     formData.append('time', Date())
 
     axios.post('http://localhost:8000/blog/post', formData).then(()=>{
@@ -31,6 +38,7 @@ const BlogMainInput = (props) => {
       setDocument('')
     })
   }
+
 
   return (
     <div>
@@ -68,6 +76,7 @@ const BlogMainInput = (props) => {
                 value={text}
             >
             </textarea>
+
           </Box>
 
           <Box>

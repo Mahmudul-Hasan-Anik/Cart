@@ -12,6 +12,9 @@ const blogPost = async(req,res)=>{
         image: imageURL,
         video: req.body.video,
         document: documentURL,
+        userName: req.body.userName,
+        userID: req.body.userID,
+        like: req.body.like,
         time: req.body.time
     })
     await newPost.save()

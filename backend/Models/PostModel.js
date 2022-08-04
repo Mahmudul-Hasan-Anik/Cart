@@ -17,6 +17,19 @@ const PostSchema = new Schema({
     },
     document: {
         type: String
+    },
+    userName: {
+        type: String
+    },
+    userID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Authentication'
+    },
+    like: {
+        type: Array
+    },
+    comment: {
+        type: Array
     }
 },
 {

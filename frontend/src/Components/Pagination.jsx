@@ -41,7 +41,6 @@ useEffect(()=>{
     async function fatchData(){
         const {data} = await axios.get('http://localhost:8000/dashboard/api/product/show')
         setProduct(data)
-        console.log(data)
     }
     fatchData()
 },[])
