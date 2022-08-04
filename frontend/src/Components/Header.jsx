@@ -1,14 +1,21 @@
-import React,{useState} from 'react'
-import { Box,AppBar,Toolbar,IconButton,Typography,Menu,Container,Button,Tooltip,MenuItem,Badge } from '@mui/material';
+import React,{useState,useContext} from 'react'
+import { Box,AppBar,Toolbar,IconButton,Typography,Menu,Container,Button,Tooltip,MenuItem,Badge,Avatar,Stack } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Store } from '../Store';
+
 
 
 const Header = () => {
+    const {userState, userDispatch} = useContext(Store)
+    const {user} = userState
+    const navigate = useNavigate()
+
+  // MUI PROVIDE -> START
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
   
@@ -16,7 +23,13 @@ const Header = () => {
     const handleOpenUserMenu = (event) => {setAnchorElUser(event.currentTarget)};
     const handleCloseNavMenu = () => {setAnchorElNav(null)};
     const handleCloseUserMenu = () => {setAnchorElUser(null)};
+  // MUI PROVIDE -> END
 
+  const handleLogOut = ()=>{
+    userDispatch({type: 'USER_LOGOUT'})
+    localStorage.removeItem('user')
+    navigate('/')
+  }
  
   return (
     
@@ -114,6 +127,7 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+          <Stack direction="row" spacing={1}>
             <Link to='/cart'>
               <IconButton size="small" title='CART' style={{color:'white',marginRight:'1rem'}}>
                 <Badge badgeContent={0} color="secondary" showZero>
@@ -129,11 +143,20 @@ const Header = () => {
               </IconButton>
             </Link>
 
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AccountCircle style={{color:'white'}}/>
-              </IconButton>
-            </Tooltip>
+              {user? 
+                  <Avatar
+                    src="../image/user.jpg"
+                    onClick={handleOpenUserMenu}
+                    sx={{ width: 40, height: 40, cursor: 'pointer' }}
+                  />
+                  :
+                  <Tooltip title="Open settings"> 
+                    <Button>
+                      <Link to='/login' style={{textDecoration:'none',color:'white'}}>Login</Link>
+                    </Button>
+                  </Tooltip>
+              }
+            </Stack>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -161,7 +184,7 @@ const Header = () => {
                   </Typography>
                 </MenuItem>
                 <MenuItem  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Logout</Typography>
+                  <Typography textAlign="center" onClick={handleLogOut}>Logout</Typography>
                 </MenuItem>
             </Menu>
           </Box>

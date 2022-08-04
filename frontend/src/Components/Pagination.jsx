@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import ReactPaginate from 'react-paginate';
 import DummyData from '../Data';
+import axios from 'axios'
 
 import {Card,CardActions,CardContent,CardMedia,Button,Typography,Grid, IconButton} from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -14,10 +15,11 @@ const Pagination = (props) => {
   const [data, setData] = useState([]);
   const [perPage] = useState(4);
   const [pageCount, setPageCount] = useState(0)
+  const [product, setProduct] = useState([])
 
-const getData = async() => {
+const getData = () => {
     //Call api for data
-    const res = DummyData
+    const res =  product
     // const data = res.data; {data nai, due to frontend theke data nitaci}
 
     const slice = res.slice(offset, offset + perPage) 
@@ -32,7 +34,17 @@ const handlePageClick = (e) => {
 
 useEffect(() => {
    getData()
-}, [offset])
+}, [offset,product])
+
+
+useEffect(()=>{
+    async function fatchData(){
+        const {data} = await axios.get('http://localhost:8000/dashboard/api/product/show')
+        setProduct(data)
+        console.log(data)
+    }
+    fatchData()
+},[])
 
 
   return (

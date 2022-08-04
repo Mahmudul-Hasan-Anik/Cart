@@ -2,9 +2,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const dotenv = require('dotenv')
+const morgan = require('morgan')
 const app = express()
 const path = require('path')
 dotenv.config()
+
 
 //INTERNAL IMPORT
 const connect = require('./Database/DBconnection.js')
@@ -19,6 +21,7 @@ connect()
 app.use("/upload", express.static(path.join(__dirname, "uploads"))); 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(morgan('tiny'))
 app.use(cors())
 app.use('/dashboard/api', ProductRouter)
 app.use('/blog', PostRouter)

@@ -94,7 +94,7 @@ const DashProduct = () => {
                 <MenuItem value={'Burger'}>Burger</MenuItem>
                 <MenuItem value={'Juice'}>Juice</MenuItem>
                 <MenuItem value={'Fish Fry'}>Fish Fry</MenuItem>
-                <MenuItem value={'Friend Chicken'}>Friend Chicken</MenuItem>
+                <MenuItem value={'Fried Chicken'}>Fried Chicken</MenuItem>
                 <MenuItem value={'Healthy'}>Healthy</MenuItem>
                 <MenuItem value={'Pizza'}>Pizza</MenuItem>
               </Select>
