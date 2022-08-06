@@ -25,12 +25,27 @@ const PostSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Authentication'
     },
-    like: {
-        type: Array
-    },
-    comment: {
-        type: Array
-    }
+    like: [
+        {
+           LikerName: {
+            type: String
+           },
+           LikerID: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Authentication'
+           }
+        }
+    ],
+    comments: [
+        {
+            comment: {
+                type: String
+            },
+            whoComment: {
+               type: String
+            }
+        }
+    ]
 },
 {
     timestamps: true

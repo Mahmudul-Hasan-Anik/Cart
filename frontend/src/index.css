@@ -250,3 +250,18 @@ textarea{
 .post-card:first-child{
   margin-left: 30px;
 }
+.showBox{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.hideBox{
+  display: none;
+}
+.showSent{
+  display: block;
+}
+.hideSent{
+  display: none;
+}

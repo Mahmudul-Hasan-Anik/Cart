@@ -1,4 +1,3 @@
-const express = require('express')
 const post = require('../Models/PostModel')
 
 const blogPost = async(req,res)=>{
@@ -14,7 +13,6 @@ const blogPost = async(req,res)=>{
         document: documentURL,
         userName: req.body.userName,
         userID: req.body.userID,
-        like: req.body.like,
         time: req.body.time
     })
     await newPost.save()

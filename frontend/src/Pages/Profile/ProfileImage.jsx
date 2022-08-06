@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Typography,Box,Modal,Divider,IconButton, Grid, Tooltip } from '@mui/material'
 
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { useContext } from 'react';
+import axios from 'axios';
+import { Store } from '../../Store';
 
 const ProfileImage = (props) => {
+  const {userState} = useContext(Store)
+  const {user} = userState
+
+  const handleProfile = async(e)=>{
+    
+    const formData = new FormData()
+    formData.append('image', e.target.files[0])
+    const data = await axios.patch(`/user/api/uploadImage/${user._id}`, formData)
+    localStorage.setItem('user', JSON.stringify(data))
+  }
+  
+
   return (
     <Modal
         keepMounted
@@ -32,8 +47,8 @@ const ProfileImage = (props) => {
 
                   <Tooltip title="Add photo">
                     <IconButton color="primary" aria-label="upload picture" component="label">
-                        <input hidden accept="image/*" type="file" />
-                        <PhotoCamera />
+                        <input hidden accept="image/*" type="file" onChange={handleProfile}/>
+                        <PhotoCamera/>
                     </IconButton>
                   </Tooltip>
                 </Grid>

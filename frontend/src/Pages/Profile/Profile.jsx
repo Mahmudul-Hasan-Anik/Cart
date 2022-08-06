@@ -1,13 +1,20 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Container,Grid,Card,CardContent,CardMedia,Typography,IconButton, Tooltip } from '@mui/material'
 import ProfileImage from './ProfileImage';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import ProfileSidebar from './ProfileSidebar';
 import ProfileEdit from './ProfileEdit';
 import Layout from '../../Components/Layout';
+import axios from 'axios';
+import { useContext } from 'react';
+import { Store } from '../../Store';
 
 
 const Profile = () => {
+    const {userState, userDispatch} = useContext(Store)
+    const {user} = userState
+
+    const [profileValue, setProfileValue] = useState('')
     const [open, setOpen] = useState(false);
     const [editOpen, setEditOpen] = useState(false)
 
@@ -16,6 +23,16 @@ const Profile = () => {
 
     const handleEditOpen = () => setEditOpen(true);
     const handleEditClose = () => setEditOpen(false);
+
+    useEffect(()=>{
+        async function fatchData(){
+           const {data} = await axios.get(`http://localhost:8000/user/api/profile/${user.email}`)
+           setProfileValue(data)
+        }
+        fatchData()
+    },[])
+
+
   return (
     <Layout title='Profile'>
     <Container style={{width:'1220px',marginTop:'20px'}}>
@@ -29,13 +46,13 @@ const Profile = () => {
                     image="../image/cover.png"
                 />
                 <div className='profile_picture'>
-                   <img src="../image/user.png" style={profileImageDesign} onClick={handleOpen}/>
+                   <img src={profileValue ? profileValue.image : '../image/user.png'} style={profileImageDesign} onClick={handleOpen}/>
                 </div>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         <Grid container spacing={2}>
                             <Grid item xs={11}>
-                                Mahmudul Hasan
+                                {profileValue? profileValue.name : ''}
                             </Grid>
                             <Grid item xs={1}>
                                 <Tooltip title="Edit">

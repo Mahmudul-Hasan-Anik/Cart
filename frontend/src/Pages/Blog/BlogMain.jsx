@@ -1,11 +1,9 @@
 import React,{useState} from 'react'
-import {Card,CardContent,Stack,Grid,Avatar,Button} from '@mui/material'
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+import {Card,CardContent,Grid,Avatar} from '@mui/material'
 import BlogMainInput from './BlogMainInput';
 import BlogPostShow from './BlogPostShow';
 
-const BlogMain = () => {
+const BlogMain = ({profile}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -16,7 +14,7 @@ const BlogMain = () => {
       <CardContent>
         <Grid container spacing={2} className='blog_main'>
             <Grid item xs={2}> 
-                <Avatar alt="Remy Sharp" style={{marginTop:'10px',marginLeft:'10px'}}/>
+                <Avatar alt="Remy Sharp" style={{marginTop:'10px',marginLeft:'10px',}} src={profile ? profile.image : ''}/>
             </Grid>
             <Grid item xs={10}>
                 <input type="text" placeholder='start a post' onClick={handleOpen}/>
@@ -25,7 +23,7 @@ const BlogMain = () => {
 
       </CardContent>
     </Card>
-        <BlogPostShow/>
+        <BlogPostShow />
 
     {/* ====== MODAL ====== */}
     <BlogMainInput open={open} handleClose={handleClose} setOpen={setOpen}/>

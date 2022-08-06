@@ -2,6 +2,7 @@ import React from 'react'
 import { Card,CardContent,CardMedia,Typography } from '@mui/material'
 
 const BlogSidebar = () => {
+
   return (
     <>
     <Card sx={{ width: '100%' }}>

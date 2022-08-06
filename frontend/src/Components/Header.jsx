@@ -15,6 +15,8 @@ const Header = () => {
     const {user} = userState
     const navigate = useNavigate()
 
+    // console.log(user)
+
   // MUI PROVIDE -> START
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -145,7 +147,7 @@ const Header = () => {
 
               {user? 
                   <Avatar
-                    src="../image/user.jpg"
+                    src={user.image}
                     onClick={handleOpenUserMenu}
                     sx={{ width: 40, height: 40, cursor: 'pointer' }}
                   />

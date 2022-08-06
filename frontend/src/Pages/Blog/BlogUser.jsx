@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Card,CardContent,CardMedia,Typography } from '@mui/material'
+import { Store } from '../../Store'
 
-const BlogUser = () => {
+const BlogUser = ({profile}) => {
   return (
     <>
     <Card sx={{ width: '100%' }}>
@@ -12,11 +13,11 @@ const BlogUser = () => {
             image="../image/cover.png"
         />
         <div className='blog_profile_picture'>
-            <img src="../image/user.png" style={profileImageDesign}/>
+            <img src={profile ? profile.image : '../image/user.png'} style={profileImageDesign}/>
         </div>
         <CardContent className='blog_content'>
             <Typography gutterBottom variant="p" component="div" style={{fontWeight:'bold'}}>
-                Mahmudul Hasan
+                {profile ? profile.name : ''}
             </Typography>
             <Typography variant="body2" color="text.secondary">
                 MERN Stack Developer | Front-End Developer 

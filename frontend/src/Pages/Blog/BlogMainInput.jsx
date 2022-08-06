@@ -28,7 +28,7 @@ const BlogMainInput = (props) => {
     formData.append('document', document)
     formData.append('userName', user.name)
     formData.append('userID', user._id)
-    formData.append('like', user._id)
+    // formData.append('like', user._id)
     formData.append('time', Date())
 
     axios.post('http://localhost:8000/blog/post', formData).then(()=>{
